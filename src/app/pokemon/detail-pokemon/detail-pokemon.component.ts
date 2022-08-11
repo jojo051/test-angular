@@ -6,13 +6,12 @@ import { PokemonService } from '../pokemon.service';
 @Component({
   selector: 'app-detail-pokemon',
   templateUrl: './detail-pokemon.component.html',
-  styles: [
-  ]
+  providers:[PokemonService]
 })
 export class DetailPokemonComponent implements OnInit {
 
   pokemonList: Pokemon[];
-  pokemon?: Pokemon;
+  pokemon: Pokemon|undefined;
   
   constructor(
     private route: ActivatedRoute,
@@ -22,7 +21,6 @@ export class DetailPokemonComponent implements OnInit {
 
   ngOnInit() {
     const pokemonId: string|null = this.route.snapshot.paramMap.get('id');
-
     if (pokemonId) {
       this.pokemon = this.pokemonService.getPokemonById(+pokemonId)
     }
@@ -32,5 +30,8 @@ export class DetailPokemonComponent implements OnInit {
   this.router.navigate(['/pokemons'])
   }
 
+  goToEditPokemon(pokemon:Pokemon){
+    this.router.navigate(['/edit/pokemon',pokemon.id])
+  }
 
 }

@@ -20,7 +20,6 @@ export class ListPokemonComponent implements OnInit {
   }
 
   goToPokemon(pokemon: Pokemon){
-    const pokemonId:number = pokemon.id
-    this.router.navigate([`pokemon/${pokemonId}`])
+    this.router.navigate(['/pokemon',pokemon.id])
   }
 }

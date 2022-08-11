@@ -1,10 +1,10 @@
-import { NgModule } from '@angular/core';
+import { NgModule, Component } from '@angular/core';
 import { RouterModule, Routes } from '@angular/router';
 import { PageNotFondComponent } from './page-not-fond/page-not-fond.component';
 
 const routes: Routes = [
   { path: '', redirectTo: 'pokemons', pathMatch: 'full' },
-  { path:'**', component: PageNotFondComponent}
+  { path:'**', component: PageNotFondComponent }
 ];
 
 @NgModule({
